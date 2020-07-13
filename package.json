@@ -1,0 +1,22 @@
+{
+  "name": "merkle_code_tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sum.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuartmees/merkle_code_tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stuartmees/merkle_code_tests/issues"
+  },
+  "homepage": "https://github.com/stuartmees/merkle_code_tests#readme",
+  "dependencies": {
+    "jest": "^26.1.0"
+  }
+}
