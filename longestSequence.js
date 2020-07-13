@@ -1,9 +1,19 @@
 const longestSequence = (seq) => {
   
-    let seqArray = [...seq]
+    let seqArray = [...seq.toLowerCase()]
     let charFreqs = {}
     let largestCharFreqs = {}
     let largestFreq = 0
+    let largestFreqChars = []
+
+    const updateLargestFreqs = (char, freq) => {
+        if (largestFreqChars.length>0 && freq !== largestFreq) {
+          largestFreqChars.forEach(item => delete largestCharFreqs[item])
+        } 
+        largestCharFreqs[char] = freq
+        largestFreqChars.push(char)
+        largestFreq = freq  
+    }
 
     seqArray.forEach((char, i) => {
         if (i === 0) {
@@ -16,24 +26,22 @@ const longestSequence = (seq) => {
           charFreqs[char].push(1)
         }
     })
-    console.log(charFreqs)
 
-    Object.keys(charFreqs).forEach((char,i) => {
-        largestCharFreqs[char] = 0
+    Object.keys(charFreqs).forEach((char) => {
+        charFreqs[char].forEach((freq) => {
+            if (freq > largestFreq) updateLargestFreqs(char, freq)
+    })
+            
+    const keys = Object.keys(largestCharFreqs)
+    const key = keys.sort()[0]
 
-        charFreqs[char].forEach(freq => {
-            if (freq > largestCharFreqs[char]){
-              largestCharFreqs[char]=freq
-            } 
-        })
+    keys.forEach(item => {
+      if (item !== key) delete largestCharFreqs[item]
     })
 
-    console.log(largestCharFreqs)
+    return largestCharFreqs;
+}
 
-
-  }
-
-  longestSequence('aaabbcdddddaadddddddddd')
 
   module.exports = longestSequence;
 
