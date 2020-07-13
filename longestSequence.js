@@ -30,6 +30,7 @@ const longestSequence = (seq) => {
     Object.keys(charFreqs).forEach((char) => {
         charFreqs[char].forEach((freq) => {
             if (freq > largestFreq) updateLargestFreqs(char, freq)
+        })
     })
             
     const keys = Object.keys(largestCharFreqs)
@@ -43,7 +44,6 @@ const longestSequence = (seq) => {
 }
 
 
-  module.exports = longestSequence;
+module.exports = longestSequence;
 
 
-  // (Object.keys(charFreqs).includes(char)) && 
