@@ -10,6 +10,8 @@ const calcEndNetBalance = (startMonthOpeningSum, interestRate, taxFreeLimit, tax
      
 }
 
+let monthsComplete = 0
+
 const balance = (openingSum, interestRate, taxFreeLimit, taxRate, numMonths) => {
 
     const endNetBalance = calcEndNetBalance(openingSum, interestRate, taxFreeLimit, taxRate, 0, numMonths)
@@ -20,6 +22,6 @@ const balance = (openingSum, interestRate, taxFreeLimit, taxRate, numMonths) => 
 
 console.log(balance(10000, 1, 20000, 1, 2))
 console.log(balance(25000, 2, 20000, 1, 2))
+console.log(balance(19800, 2, 20000, 1, 2))
 
-module.exports = balance;
 

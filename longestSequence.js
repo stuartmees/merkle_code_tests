@@ -1,3 +1,4 @@
+
 const longestSequence = (seq) => {
   
     let seqArray = [...seq.toLowerCase()]
@@ -5,25 +6,26 @@ const longestSequence = (seq) => {
     let largestCharFreqs = {}
     let largestFreq = 0
     let largestFreqChars = []
-
+    
     const updateLargestFreqs = (char, freq) => {
         if (largestFreqChars.length>0 && freq !== largestFreq) {
-          largestFreqChars.forEach(item => delete largestCharFreqs[item])
+            largestFreqChars.forEach(item => delete largestCharFreqs[item])
         } 
-        largestCharFreqs[char] = freq
-        largestFreqChars.push(char)
-        largestFreq = freq  
+    
+          largestCharFreqs[char] = freq
+          largestFreqChars.push(char)
+          largestFreq = freq  
     }
 
     seqArray.forEach((char, i) => {
         if (i === 0) {
-          charFreqs[char] = [1]
+            charFreqs[char] = [1]
         } else if (seqArray[i-1] === char) {
             charFreqs[char][charFreqs[char].length-1] = charFreqs[char][charFreqs[char].length-1] + 1
         } else if (seqArray[i-1] !== char  &&  !Object.keys(charFreqs).includes(char) ){
-          charFreqs[char] = [1]
+            charFreqs[char] = [1]
         } else if (seqArray[i-1] !== char  &&  Object.keys(charFreqs).includes(char) ) {
-          charFreqs[char].push(1)
+            charFreqs[char].push(1)
         }
     })
 
@@ -37,7 +39,7 @@ const longestSequence = (seq) => {
     const key = keys.sort()[0]
 
     keys.forEach(item => {
-      if (item !== key) delete largestCharFreqs[item]
+        if (item !== key) delete largestCharFreqs[item]
     })
 
     return largestCharFreqs;
