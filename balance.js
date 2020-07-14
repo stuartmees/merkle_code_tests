@@ -10,8 +10,6 @@ const calcEndNetBalance = (startMonthOpeningSum, interestRate, taxFreeLimit, tax
      
 }
 
-let monthsComplete = 0
-
 const balance = (openingSum, interestRate, taxFreeLimit, taxRate, numMonths) => {
 
     const endNetBalance = calcEndNetBalance(openingSum, interestRate, taxFreeLimit, taxRate, 0, numMonths)

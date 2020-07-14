@@ -3,16 +3,19 @@ const secondLowest = (arr) => {
     let intFreqs = {}
     let frequencyArray = []
 
+    //generate object with each item's frequency of occurance
     arr.forEach((item, i) => {
         const itemArray = arr.filter(item => arr[i] === item)
         intFreqs[arr[i]] = itemArray.length
     })
 
+    // generate an array of the frequency of each items occurance
     Object.keys(intFreqs).forEach(key => frequencyArray.push(intFreqs[key]))
     frequencyArray.sort()
 
     let allEqualFreq = true
 
+    //determine if all the frequencies are the same
     for (let i=0; i<frequencyArray.length; i++) {
         if (frequencyArray[i] !== frequencyArray[i+1] ) {
             allEqualFreq = false
