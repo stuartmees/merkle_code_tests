@@ -17,6 +17,7 @@ const longestSequence = (seq) => {
           largestFreq = freq  
     }
 
+    // generate object of each char and its frequencies
     seqArray.forEach((char, i) => {
         if (i === 0) {
             charFreqs[char] = [1]
@@ -29,12 +30,14 @@ const longestSequence = (seq) => {
         }
     })
 
+    // for each char reduce to only the largest freq
     Object.keys(charFreqs).forEach((char) => {
         charFreqs[char].forEach((freq) => {
             if (freq > largestFreq) updateLargestFreqs(char, freq)
         })
     })
-            
+    
+    // if more than one char take the lowest in the alphabet
     const keys = Object.keys(largestCharFreqs)
     const key = keys.sort()[0]
 
